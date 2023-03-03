@@ -115,17 +115,17 @@ func playerStat(){
     MP: \(player_MP)/50
     
     == Magic ==
-    - Physical Attack. No mana required. Deal 5pt of damage
-    - Meteor. use 15pt of MP. Deal 50pt of damage
-    - Shield. use 10pt of MP. Block enemy's attack in 1 turn
-    
+    """)
+        for (index, item) in skill.enumerated(){
+            print("- \(item). \(usedMP[index])pt of MP. \(skill_dmg[index])pt of damage")
+        }
+        
+        print("""
     == Item ==
     - Potion. Heal 20pt of your HP
     - Elixir. add 10pt of your MP
     """)
-        for (index, item) in skill.enumerated(){
-            print("- \(item). \(usedMP[index]). \(skill_dmg[index])")
-        }
+        
         
         print("""
     Press [return] to go back:

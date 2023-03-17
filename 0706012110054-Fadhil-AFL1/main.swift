@@ -12,21 +12,21 @@ import Foundation
 
 //action
 var getHeal: Int = 20
-var getElx: Int = 10
+var getElixir: Int = 10
 var skill: [String] = ["Physical Attack", "Meteor", "Shield"]
 var skill_dmg: [Int] = [5, 50, 0]
 var skill_MP: [Int] = [0, 15, 10]
 var usedMP: [String] = ["No Mana required", "Use \(skill_MP[1]) of MP", "Use \(skill_MP[2]) of MP"]
-var scan:Bool = false
+var scan_vital:Bool = false
 
 
 //menu
 var start: String = ""
 var menu: String = ""
-var menuf: Int = 0
+var menufight: Int = 0
 var back: String = ""
 var heal: String = ""
-var elix: String = ""
+var use_elixir: String = ""
 
 
 //player
@@ -35,7 +35,7 @@ var player_HP: Int = 100
 var player_MP: Int = 50
 var potion: Int = 20
 var elixir: Int = 10
-var skillmult: Int = 0
+var skillmultiple: Int = 0
 
 //Monster
 var monster_name: [String] = ["Troll", "Golem"]
@@ -53,7 +53,7 @@ func welcomeScreen(){
     you have been choosen to embark on an epic journey as a young wizard on the path to becoming a master of the
     \t\tarcane arts. Your adventures will take you through forest 🌲, mountains ⛰️, and dungeons 🏰, where you will
     \t\tface challenges, make allies, and fight enemies.
-
+    
     press [return] to continue:
     """, terminator: " ")
     start = readLine()!
@@ -85,11 +85,11 @@ func gameStart(){
 }
 
 func journeyScreen(){
-    scan = false
+    scan_vital = false
     while true{
         
-    
-    print("""
+        
+        print("""
 \nFrom here, you can...
 
 [C]heck your health and stat
@@ -103,26 +103,26 @@ func journeyScreen(){
 
 your choice?
 """, terminator: " ")
-    menu = readLine()!.uppercased()
-    
-    if (menu == "C" ){
-        playerStat()
-    }else if(menu == "H" ){
-        Healing()
-    }else if(menu == "F" ){
-        Forest()
-    }else if(menu == "M" ){
-        Mountain()
-    }else if(menu == "Q"){
-        exit(1)
+        menu = readLine()!.uppercased()
+        
+        if (menu == "C" ){
+            playerStatus()
+        }else if(menu == "H" ){
+            Healing()
+        }else if(menu == "F" ){
+            Forest()
+        }else if(menu == "M" ){
+            Mountain()
+        }else if(menu == "Q"){
+            exit(1)
+        }
     }
-}
 }
 
 
 
 //Player Status
-func playerStat(){
+func playerStatus(){
     while true{
         print("\n=== Player Status ===")
         print("""
@@ -157,11 +157,21 @@ func playerStat(){
         }
     }
 }
-     
+
 
 
 // ACTION FIGHT THE MONSTER
 func Forest(){
+    
+    //Function untuk take turn attacking monster
+    func MonsterAttackTroll(){
+        player_HP = player_HP - monster_attack[monster_name.firstIndex(of: "Troll")!]
+    }
+    
+    //Function untuk melakukan penambahan damage jika user melakukan scan vital pada monster
+    func SkillMultipleForest(){
+        skillmultiple = skill_dmg[skill.firstIndex(of: "Physical Attack")!] * 10
+    }
     
     if(player_HP <= 0){
         print("You're dead, please choose your action carefully")
@@ -192,31 +202,31 @@ func Forest(){
     
         Your Choice:
     """, terminator: " ")
-    menuf = Int(readLine()!)!
+    menufight = Int(readLine()!)!
     
-    switch menuf{
+    switch menufight{
     case 1:
-        if (scan == true){
-            skillmult = skill_dmg[skill.firstIndex(of: "Physical Attack")!] * 10
-            monster_HP[monster_name.firstIndex(of: "Troll")!] -= skillmult
-            player_HP = player_HP - monster_attack[monster_name.firstIndex(of: "Troll")!]
+        if (scan_vital == true){
+            SkillMultipleForest()
+            monster_HP[monster_name.firstIndex(of: "Troll")!] -= skillmultiple
+            MonsterAttackTroll()
             Forest()
         }else{
             monster_HP[monster_name.firstIndex(of: "Troll")!] -= skill_dmg[0]
-            player_HP = player_HP - monster_attack[monster_name.firstIndex(of: "Troll")!]
+            MonsterAttackTroll()
             Forest()
         }
         
     case 2:
         monster_HP[monster_name.firstIndex(of: "Troll")!] -= skill_dmg[1]
         player_MP = player_MP - skill_MP[skill.firstIndex(of: "Meteor")!]
-        player_HP = player_HP - monster_attack[monster_name.firstIndex(of: "Troll")!]
+        MonsterAttackTroll()
         Forest()
     case 3:
         player_MP = player_MP - skill_MP[skill.firstIndex(of: "Shield")!]
         Forest()
     case 4:
-       Healing()
+        Healing()
     case 5:
         if(player_MP < 50){
             addElixir()
@@ -226,7 +236,7 @@ func Forest(){
         }
     case 6:
         print("The Monster vital is on the head, Use skill Physical Attack to Kill the monster")
-        scan = true
+        scan_vital = true
         Forest()
     case 7:
         print("""
@@ -252,6 +262,16 @@ func Forest(){
 }
 
 func Mountain(){
+    
+    //Function untuk take turn attacking monster
+    func MonsterAttackGolem(){
+        player_HP = player_HP - monster_attack[monster_name.firstIndex(of: "Golem")!]
+    }
+    
+    //Function untuk melakukan penambahan damage jika user melakukan scan vital pada monster
+    func SkillMultipleMountain(){
+        skillmultiple = skill_dmg[skill.firstIndex(of: "Meteor")!] * 2
+    }
     
     if(player_HP <= 0){
         print("You're dead, please choose your action carefully")
@@ -282,24 +302,25 @@ func Mountain(){
     
         Your Choice:
     """, terminator: " ")
-    menuf = Int(readLine()!)!
+    menufight = Int(readLine()!)!
     
-    switch menuf{
+    switch menufight{
     case 1:
+        
+        MonsterAttackGolem()
         monster_HP[monster_name.firstIndex(of: "Golem")!] -= skill_dmg[0]
-        player_HP = player_HP - monster_attack[monster_name.firstIndex(of: "Golem")!]
         Mountain()
     case 2:
-        if(scan == true){
-            skillmult = skill_dmg[skill.firstIndex(of: "Meteor")!] * 2
-            monster_HP[monster_name.firstIndex(of: "Golem")!] -= skillmult
+        if(scan_vital == true){
+            SkillMultipleMountain()
+            monster_HP[monster_name.firstIndex(of: "Golem")!] -= skillmultiple
             player_MP = player_MP - skill_MP[skill.firstIndex(of: "Meteor")!]
-            player_HP = player_HP - monster_attack[monster_name.firstIndex(of: "Golem")!]
+            MonsterAttackGolem()
             Mountain()
         }else{
             monster_HP[monster_name.firstIndex(of: "Golem")!] -= skill_dmg[1]
             player_MP = player_MP - skill_MP[skill.firstIndex(of: "Meteor")!]
-            player_HP = player_HP - monster_attack[monster_name.firstIndex(of: "Golem")!]
+            MonsterAttackGolem()
             Mountain()
         }
         
@@ -307,12 +328,12 @@ func Mountain(){
         player_MP = player_MP - skill_MP[skill.firstIndex(of: "Shield")!]
         Mountain()
     case 4:
-       Healing()
+        Healing()
     case 5:
         addElixir()
     case 6:
         print("The Monster vital is in the core, use Skill meteor to kill the monster")
-        scan = true
+        scan_vital = true
         Mountain()
     case 7:
         print("""
@@ -341,44 +362,44 @@ func Mountain(){
 // Add Potion or Elixir
 func Healing(){
     
-        if(potion == 0){
-            print("""
-            You don't have ny potion left. Be careful of your next journey.
+    if(potion == 0){
+        print("""
+            \nYou don't have ny potion left. Be careful of your next journey.
             press [return] to go back:
             """, terminator: " ")
-            back = readLine()!
-        }else {
-                print("""
+        back = readLine()!
+    }else {
+        print("""
                 \nYour HP is \(player_HP)
                 You have \(potion) potion
                 
                 are you sure want to use 1 potion to heal wound? [Y/N]
                 """, terminator: " ")
-                heal = readLine()!.uppercased()
-                
-                if(heal == "Y" ){
-                    if(potion == 0){
-                        print("""
+        heal = readLine()!.uppercased()
+        
+        if(heal == "Y" ){
+            if(potion == 0){
+                print("""
                             \nYou don't have ny potion left. Be careful of your next journey.
                             press [return] to go back:
                         """, terminator: " ")
-                        back = readLine()!
-                        
-                        switch back{
-                        case "":
-                            journeyScreen()
-                        default:
-                            Healing()
-                        }
-                    }else{
-                            healingAgain()
-                        }
-                }else{
+                back = readLine()!
+                
+                switch back{
+                case "":
                     journeyScreen()
+                default:
+                    Healing()
                 }
+            }else{
+                healingAgain()
+            }
+        }else{
+            journeyScreen()
         }
     }
-      
+}
+
 func healingAgain(){
     if (player_HP < 100){
         player_HP = player_HP + getHeal
@@ -402,41 +423,48 @@ func healingAgain(){
 }
 
 func addElixir(){
+    if(elixir == 0){
+        print("""
+        \nYou don't have any Elixir left. Be careful of your next journey.
+        press [return] to go back:
+        """, terminator: " ")
+        back = readLine()!
+    }else{
         print("""
             \nYour MP is: \(player_MP)
             You have \(elixir) elixir left
-
+    
             Do you want to use 1 elixir [Y/N]?
     """, terminator: " ")
-        elix = readLine()!.uppercased()
+        use_elixir = readLine()!.uppercased()
         
-        if elix == "Y"{
-           addElixirAgain()
+        if use_elixir == "Y"{
+            addElixirAgain()
         }else{
             journeyScreen()
         }
-    
+        
+    }
 }
-
 func addElixirAgain(){
     if player_MP < 50{
-        player_MP = player_MP + getElx
+        player_MP = player_MP + getElixir
         elixir = elixir - 1
         
         print("""
-            Your MP now: \(player_MP)
+            \nYour MP now: \(player_MP)
             Your Elixir is \(elixir) left
-
+    
         Still want to use elixir?[Y/N]
     """)
-        elix = readLine()!.uppercased()
-        if elix == "Y"{
+        use_elixir = readLine()!.uppercased()
+        if use_elixir == "Y"{
             addElixirAgain()
         }else{
             journeyScreen()
         }
     }else if player_MP >= 50{
-        print("Your MP is already full, please use it wisely.")
+        print("\nYour MP is already full, please use it wisely.")
     }
     
     

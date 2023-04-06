@@ -13,7 +13,6 @@ class Player{
     var player_Hp: Int = 100
     var player_MP: Int = 50
     var scan_vital: Bool = false
-    var Block: Bool = false
     
     init(player_name: String) {
         self.player_name = player_name

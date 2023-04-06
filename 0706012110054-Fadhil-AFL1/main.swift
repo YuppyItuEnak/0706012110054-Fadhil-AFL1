@@ -29,9 +29,9 @@ let myPhysicalAttack = Physical_attack(skill_name: "Physical Attack", Skill_usag
 let myMeteor = Meteor(skill_name: "Meteor", Skill_usage: 15, description: "use 15pt of MP", damage: 20)
 let myShield = Shield(skill_name: "Shield", Skill_usage: 10, description: "Use 10pt of MP", damage: 0)
 
-
 var player_name: String = ""
 var skillmultiple: Int = 0
+
 
 //Monster
 
@@ -205,9 +205,14 @@ func Forest(){
     
     
     if(player.player_Hp <= 0){
-        print("You're dead, please choose your action carefully")
+        print("""
+\n===========GAME OVER===========
+You're dead, please choose your action carefully
+===========GAME OVER===========\n
+""")
         journeyScreen()
     }
+    
     
     if selectedMonsterForest.monster_HP <= 30{
         monster_awakens = true
@@ -271,7 +276,11 @@ func Forest(){
                 Forest()
             }
         case 6:
-            print("The Monster vital is on the head, Use skill Physical Attack to Kill the monster")
+            print("""
+\n========================================
+The Monster vital is on the head, Use skill Physical Attack to Kill the monster
+========================================\n
+""")
             player.scan_vital = true
             Forest()
         case 7:
@@ -352,7 +361,11 @@ func Forest(){
                 Forest()
             }
         case 6:
-            print("The Monster vital is on the head, Use skill Physical Attack to Kill the monster")
+            print("""
+\n========================================
+The Monster vital is on the head, Use skill Physical Attack to Kill the monster
+========================================\n
+""")
             player.scan_vital = true
             Forest()
         case 7:
@@ -430,7 +443,11 @@ func Forest(){
                 Forest()
             }
         case 6:
-            print("The Monster vital is on the head, Use skill Physical Attack to Kill the monster")
+            print("""
+\n========================================
+The Monster vital is on the head, Use skill Physical Attack to Kill the monster
+========================================\n
+""")
             player.scan_vital = true
             Forest()
         case 7:
@@ -500,7 +517,11 @@ Congratulations, You've defeat the Golem
     }
     
     if(player.player_Hp <= 0){
-        print("You're dead, please choose your action carefully")
+        print("""
+\n===========GAME OVER===========
+You're dead, please choose your action carefully
+===========GAME OVER===========\n
+""")
         journeyScreen()
     }
     
@@ -556,7 +577,11 @@ Congratulations, You've defeat the Golem
         case 5:
             addElixir()
         case 6:
-            print("The Monster vital is in the core, use Skill meteor to kill the monster")
+            print("""
+                  \n========================================
+                  The Monster vital is in the core, use Skill meteor to kill the monster
+                  ========================================\n
+                  """)
             player.scan_vital = true
             Mountain()
         case 7:
@@ -631,7 +656,11 @@ Congratulations, You've defeat the Golem
         case 5:
             addElixir()
         case 6:
-            print("The Monster vital is in the core, use Skill meteor to kill the monster")
+            print("""
+                  \n========================================
+                  The Monster vital is in the core, use Skill meteor to kill the monster
+                  ========================================\n
+                  """)
             player.scan_vital = true
             Mountain()
         case 7:
@@ -706,12 +735,16 @@ Congratulations, You've defeat the Golem
         case 5:
             addElixir()
         case 6:
-            print("The Monster vital is in the core, use Skill meteor to kill the monster")
+            print("""
+                  \n========================================
+                  The Monster vital is in the core, use Skill meteor to kill the monster
+                  ========================================\n
+                  """)
             player.scan_vital = true
             Mountain()
         case 7:
             print("""
-                You feel that if you don't escape soon, you won't be able to continue the fight.
+                \nYou feel that if you don't escape soon, you won't be able to continue the fight.
             You look around frantically, searching for the way out. You sprint towards the exit, your hearth pounding in your
             chest.
             
@@ -727,7 +760,7 @@ Congratulations, You've defeat the Golem
                 Mountain()
             }
         default:
-            print("Please choose action from one of menu")
+            print("\nPlease choose action from one of menu")
             Mountain()
         }
     }

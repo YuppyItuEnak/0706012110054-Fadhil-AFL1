@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Golem: Monster{
+struct Golem: Monster{
     var monster_name: String
     var monster_HP: Int
     var monster_dmg: Int

@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		0407E3AE29CD515500971BF2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3AD29CD515500971BF2 /* Player.swift */; };
 		0407E3B029CD516800971BF2 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3AF29CD516800971BF2 /* Monster.swift */; };
-		0407E3B229CD517600971BF2 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3B129CD517600971BF2 /* Items.swift */; };
 		0407E3B429CD518100971BF2 /* Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3B329CD518100971BF2 /* Potion.swift */; };
 		0407E3B629CD518C00971BF2 /* Elixir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3B529CD518C00971BF2 /* Elixir.swift */; };
-		0407E3B829CD519800971BF2 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3B729CD519800971BF2 /* Skill.swift */; };
 		0407E3BA29CD51A800971BF2 /* Physical_Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3B929CD51A800971BF2 /* Physical_Attack.swift */; };
 		0407E3BC29CD51B400971BF2 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3BB29CD51B400971BF2 /* Meteor.swift */; };
 		0407E3BE29CD51BD00971BF2 /* Shield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3BD29CD51BD00971BF2 /* Shield.swift */; };
 		0407E3C029DBD77500971BF2 /* Golem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3BF29DBD77500971BF2 /* Golem.swift */; };
 		0407E3C229DBD78700971BF2 /* Troll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E3C129DBD78700971BF2 /* Troll.swift */; };
 		04373AC629AFC1F4009013F4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04373AC529AFC1F4009013F4 /* main.swift */; };
+		045BEB0D2A00B94B002C5DAE /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045BEB0C2A00B94B002C5DAE /* Skill.swift */; };
+		045BEB0F2A00B96B002C5DAE /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045BEB0E2A00B96B002C5DAE /* Items.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,10 +36,8 @@
 /* Begin PBXFileReference section */
 		0407E3AD29CD515500971BF2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0407E3AF29CD516800971BF2 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
-		0407E3B129CD517600971BF2 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		0407E3B329CD518100971BF2 /* Potion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Potion.swift; sourceTree = "<group>"; };
 		0407E3B529CD518C00971BF2 /* Elixir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elixir.swift; sourceTree = "<group>"; };
-		0407E3B729CD519800971BF2 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		0407E3B929CD51A800971BF2 /* Physical_Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physical_Attack.swift; sourceTree = "<group>"; };
 		0407E3BB29CD51B400971BF2 /* Meteor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		0407E3BD29CD51BD00971BF2 /* Shield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shield.swift; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		0407E3C129DBD78700971BF2 /* Troll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Troll.swift; sourceTree = "<group>"; };
 		04373AC229AFC1F4009013F4 /* 0706012110054-Fadhil-AFL1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "0706012110054-Fadhil-AFL1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04373AC529AFC1F4009013F4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		045BEB0C2A00B94B002C5DAE /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		045BEB0E2A00B96B002C5DAE /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,15 +82,15 @@
 				04373AC529AFC1F4009013F4 /* main.swift */,
 				0407E3AD29CD515500971BF2 /* Player.swift */,
 				0407E3AF29CD516800971BF2 /* Monster.swift */,
-				0407E3B129CD517600971BF2 /* Items.swift */,
 				0407E3B329CD518100971BF2 /* Potion.swift */,
 				0407E3B529CD518C00971BF2 /* Elixir.swift */,
-				0407E3B729CD519800971BF2 /* Skill.swift */,
 				0407E3B929CD51A800971BF2 /* Physical_Attack.swift */,
 				0407E3BB29CD51B400971BF2 /* Meteor.swift */,
 				0407E3BD29CD51BD00971BF2 /* Shield.swift */,
 				0407E3BF29DBD77500971BF2 /* Golem.swift */,
 				0407E3C129DBD78700971BF2 /* Troll.swift */,
+				045BEB0C2A00B94B002C5DAE /* Skill.swift */,
+				045BEB0E2A00B96B002C5DAE /* Items.swift */,
 			);
 			path = "0706012110054-Fadhil-AFL1";
 			sourceTree = "<group>";
@@ -155,14 +155,14 @@
 			files = (
 				0407E3B429CD518100971BF2 /* Potion.swift in Sources */,
 				0407E3B029CD516800971BF2 /* Monster.swift in Sources */,
-				0407E3B229CD517600971BF2 /* Items.swift in Sources */,
 				0407E3BC29CD51B400971BF2 /* Meteor.swift in Sources */,
 				0407E3C029DBD77500971BF2 /* Golem.swift in Sources */,
+				045BEB0F2A00B96B002C5DAE /* Items.swift in Sources */,
 				0407E3BE29CD51BD00971BF2 /* Shield.swift in Sources */,
 				0407E3B629CD518C00971BF2 /* Elixir.swift in Sources */,
 				0407E3AE29CD515500971BF2 /* Player.swift in Sources */,
-				0407E3B829CD519800971BF2 /* Skill.swift in Sources */,
 				0407E3BA29CD51A800971BF2 /* Physical_Attack.swift in Sources */,
+				045BEB0D2A00B94B002C5DAE /* Skill.swift in Sources */,
 				04373AC629AFC1F4009013F4 /* main.swift in Sources */,
 				0407E3C229DBD78700971BF2 /* Troll.swift in Sources */,
 			);
